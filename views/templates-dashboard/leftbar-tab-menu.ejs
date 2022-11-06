@@ -1,0 +1,56 @@
+<!-- leftbar-tab-menu -->
+<div class="left-sidebar">
+    <!-- LOGO -->
+    <div class="brand">
+        <a href="index.html" class="logo">
+            <span>
+                <img src="img/logo-sm.png" alt="logo-small" class="logo-sm">
+            </span>
+        </a>
+    </div>
+    <div class="sidebar-user-pro media border-end">                    
+        <div class="position-relative mx-auto">
+            <img src="img/users/user-4.jpg" alt="user" class="rounded-circle thumb-md">
+            <span class="online-icon position-absolute end-0"><i class="mdi mdi-record text-success"></i></span>
+        </div>
+        <div class="media-body ms-2 user-detail align-self-center">
+            <h5 class="font-14 m-0 fw-bold"><%= user.username %></h5>       
+        </div>                    
+    </div>
+    <div class="border-end">
+        
+    </div>
+    <!-- Tab panes -->
+
+    <!--end logo-->
+    <div class="menu-content h-100" data-simplebar>
+        <div class="menu-body navbar-vertical">
+            <div class="collapse navbar-collapse tab-content" id="sidebarCollapse">
+                <!-- Navigation -->
+                <ul class="navbar-nav tab-pane active" id="Main" role="tabpanel">
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard"><i class="mdi mdi-monitor-dashboard menu-icon"></i><span>Dashboard</span></a>
+                    </li><!--end nav-item-->
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/add_device"><i class="mdi mdi-plus-network-outline menu-icon"></i><span>Add Device</span></a>
+                    </li><!--end nav-item-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add_group"><i class="mdi mdi-group menu-icon"></i><span>Add Group</span></a>
+                    </li><!--end nav-item-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/data_bucket"><i class="mdi mdi-database menu-icon"></i><span>Data bucket</span></a>
+                    </li><!--end nav-item-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/settings"><i class="mdi mdi-settings menu-icon"></i><span>Settings</span></a>
+                    </li><!--end nav-item-->
+
+                    
+                </ul>
+            </div><!--end sidebarCollapse-->
+        </div>
+    </div>    
+</div>
+<!-- end left-sidenav-->
+<!-- end leftbar-menu-->

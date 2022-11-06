@@ -1,0 +1,248 @@
+<%- include('../templates-dashboard/header'); %>
+                        <script src="js/jquery.min.js"></script>
+                        
+    <%- include('../templates-dashboard/styles'); %>
+        <%- include('../templates-dashboard/endheader'); %>
+            <%- include('../templates-dashboard/leftbar-tab-menu'); %>
+                <%- include('../templates-dashboard/top-bar'); %>
+
+
+                    <div class="page-wrapper">
+                        <div class="page-content-tab">
+
+                            <div class="container-fluid">
+                                <!-- Page-Title -->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="page-title-box">
+                                            <h4 class="page-title">Dashboard</h4>
+                                        </div>
+                                        <!--end page-title-box-->
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <div class="row">
+                                    <% for (var i=0; i < devices.length; i++) { %>
+                                        <div class="col-lg-3" style="border: 1px solid #dbcaab;margin-right:5px;">
+                                            <div class="card mb-3">
+                                                <div class="row no-gutters">
+
+                                                    
+                                                    <div class="col-lg-12">
+                                                        <div class="card-header">
+                                                            <div class="row align-items-center">
+                                                                <div class="col">
+                                                                    <h4 class="card-title">
+                                                                        <img class="" height="40" style="margin-right: 10px;" src="img/small/iot-device.png" alt="Card image"><%= devices[i].device_name %>
+                                                                    </h4>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-auto">
+                                                                    <span class="badge badge-outline-light">
+                                                                        <%= devices[i].device_type %>
+                                                                    </span>
+                                                                </div>
+                                                                <!--end col-->
+                                                            </div>
+                                                            <!--end row-->
+                                                        </div>
+                                                        <!--end card-header-->
+                                                        <div class="card-body">
+                                                            <p class="card-text">
+                                                                <% if(devices[i].device_type==='P416-4DIO-2AI' ){ %>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6">
+                                                                            <div class="form-check form-switch form-switch-success">
+                                                                                <label class="form-check-label"
+                                                                                    for="di1_switch">DI1 </label>
+                                                                                <input class="form-check-input" type="checkbox"
+                                                                                    id="<%= devices[i].device_name %>_di1_" <% if( devices[i].device_values.di1){ %> checked <% } %> disabled>
+                                                                            </div>
+                                                                            <br />
+                                                                            <div class="form-check form-switch form-switch-success">
+                                                                                <label class="form-check-label"
+                                                                                    for="di2_switch">DI2 </label>
+                                                                                <input class="form-check-input" type="checkbox"
+                                                                                id="<%= devices[i].device_name %>_di2_" <% if( devices[i].device_values.di2){ %> checked <% } %> disabled>
+                                                                            </div>
+                                                                            <br />
+                                                                            <div class="form-check form-switch form-switch-success">
+                                                                                <label class="form-check-label"
+                                                                                    for="do1_switch">DO1 </label>
+                                                                                <input class="form-check-input io_switch" type="checkbox"
+                                                                                id="<%= devices[i].device_name %>_do1_" <% if( devices[i].device_values.do1){ %> checked <% } %>      >
+                                                                            </div>
+                                                                            <br />
+                                                                            <div class="form-check form-switch form-switch-success">
+                                                                                <label class="form-check-label"
+                                                                                    for="do2_switch">DO2 </label>
+                                                                                <input class="form-check-input io_switch" type="checkbox"
+                                                                                id="<%= devices[i].device_name %>_do2_" <% if( devices[i].device_values.do2){ %> checked <% } %>  >
+                                                                            </div>
+                                                                            <br />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                            <div class="col-lg-6">
+                                                                                <span id="<%= devices[i].device_name %>_ai1_">Analog Input 1 :   <%= devices[i].device_values.ai1 %></span>
+                                                                                <!-- <script>
+                                                                                    var ai1Value = <%= devices[i].device_values.ai1 %>;
+                                                                                </script>
+                                                                                <div class="chart-demo m-0">
+                                                                                    <div id="apex_radialbar1"
+                                                                                        class="apex-charts"></div>
+                                                                                </div> -->
+                                                                            </div>
+                                                                            <!--end col-->
+                                                                            <div class="col-lg-6">
+                                                                                <span id="<%= devices[i].device_name %>_ai2_">Analog Input 2 :   <%= devices[i].device_values.ai2 %></span>
+                                                                                <!-- <script>
+                                                                                    var ai2Value = <%= devices[i].device_values.ai2 %>;
+                                                                                </script>
+                                                                                <div class="chart-demo m-0">
+                                                                                    <div id="apex_radialbar2"
+                                                                                        class="apex-charts"></div>
+                                                                                </div> -->
+                                                                            </div>
+                                                                            <!--end col-->
+                                                                        
+                                                                    </div>
+                                                                    <% } %>
+                                                                        <% if(devices[i].device_type==='P414-4DO' ){ %>
+                                                                            <div
+                                                                                class="form-check form-switch form-switch-success">
+                                                                                <label class="form-check-label"
+                                                                                    for="do1_switch">DO1 </label>
+                                                                                <input class="form-check-input io_switch"
+                                                                                    type="checkbox" id="<%= devices[i].device_name %>_do1_"
+                                                                                    <% if( devices[i].device_values.do1){ %> checked <% } %> >
+                                                                            </div>
+                                                                            <br />
+                                                                            <div
+                                                                                class="form-check form-switch form-switch-success">
+                                                                                <label class="form-check-label"
+                                                                                    for="do2_switch">DO2 </label>
+                                                                                <input class="form-check-input io_switch" 
+                                                                                    type="checkbox" id="<%= devices[i].device_name %>_do2_"
+                                                                                    <% if( devices[i].device_values.do2){ %> checked <% } %> >
+                                                                            </div>
+                                                                            <br />
+                                                                            <div
+                                                                                class="form-check form-switch form-switch-success">
+                                                                                <label class="form-check-label"
+                                                                                    for="do1_switch">DO3 </label>
+                                                                                <input class="form-check-input io_switch"
+                                                                                    type="checkbox" id="<%= devices[i].device_name %>_do3_"
+                                                                                    <% if( devices[i].device_values.do3){ %> checked <% } %> >
+                                                                            </div>
+                                                                            <br />
+                                                                            <div
+                                                                                class="form-check form-switch form-switch-success">
+                                                                                <label class="form-check-label"
+                                                                                    for="do2_switch">DO4 </label>
+                                                                                <input class="form-check-input io_switch"
+                                                                                    type="checkbox" id="<%= devices[i].device_name %>_do4_"
+                                                                                    <% if( devices[i].device_values.do4){ %> checked <% } %> >
+                                                                            </div>
+                                                                            <br />
+                                                                            <% } %>
+                                                            </p>
+                                                            <p class="card-text"><small class="text-muted">Last updated
+                                                                    <%= Math.floor(Math.random() * (10 - 1 + 1) + 1) %>
+                                                                        mins ago</small></p>
+                                                        </div>
+                                                        <!--end card-body-->
+                                                    </div>
+                                                    <!--end col-->
+
+                                                </div>
+                                                <!--end row-->
+                                            </div>
+                                            <!--end card-->
+
+
+                                        </div>
+                                        <!--end col-->
+                                        <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page-wrapper -->
+
+                    <%- include('../templates-dashboard/scripts'); %>
+                        <!-- Javascript  -->
+                        
+                        
+                        <script src="js/libs/apexcharts/apexcharts.min.js"></script>
+                        <script src="js/pages/apexcharts.init.js"></script>
+<script>
+    $(".io_switch").click(function(){
+        var val = false;
+        if ($(this).is(":checked"))
+        {
+            val = true;
+        }
+        var msg = $(this).attr('id') + val;
+        
+        ws.send(msg);
+    });
+</script>
+<script>
+    var ws = new WebSocket('ws://46.102.129.61:40510');
+
+    // event emmited when connected
+    ws.onopen = function () {
+        console.log('websocket is connected ...')
+
+        // sending a send event to websocket server
+        ws.send('connected')
+    }
+
+    // event emmited when receiving message 
+    ws.onmessage = function (ev) {
+        var dataJson = JSON.parse(ev.data);
+        if(dataJson[0].ioType === 'di1' || dataJson[0].ioType === 'di2' ||
+            dataJson[0].ioType === 'di3' || dataJson[0].ioType === 'di4'){
+                checkSwitchStatus(dataJson[0].id,dataJson[0].value);
+        }else if(dataJson[0].ioType === 'ai1' || dataJson[0].ioType === 'ai2'){
+            changeAiValue(dataJson[0].id,dataJson[0].ioType,dataJson[0].value);
+
+        }
+        
+    }
+    function checkSwitchStatus(elementId, value){
+        if(value === 'true' || value === 'True' || value == true){
+            $("#"+elementId).attr('checked', true);
+        }else if(value === 'false' || value === 'False' || value == false){
+            $("#"+elementId).attr('checked', false);
+        } 
+    }
+    function changeAiValue(elementId,ioType, value){
+        // reRenderChart();
+
+        if(ioType==='ai1'){
+            
+            value=parseFloat(value);
+            value=(value-595)/3165;
+            value= value*100
+            value=value.toFixed(2);
+            if(value<0){
+                value=0;
+            }
+            $("#"+elementId).html("AI 1: "+value+" %");
+        }
+        else if(ioType==='ai2'){
+            value=parseFloat(value);
+            value=(value-600)/3240;
+            value= value*100
+            value= value.toFixed(2);
+            if(value<0){
+                value=0;
+            }
+            $("#"+elementId).html("AI 2: "+value+" %");
+        }
+        
+    }
+</script>
+<%- include('../templates-dashboard/footer'); %>

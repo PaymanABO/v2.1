@@ -1,0 +1,78 @@
+<%- include('../templates-dashboard/header'); %>
+<%- include('../templates-dashboard/styles'); %>
+<%- include('../templates-dashboard/endheader'); %>
+<%- include('../templates-dashboard/leftbar-tab-menu'); %>
+<%- include('../templates-dashboard/top-bar'); %>         
+
+
+
+    <div class="page-wrapper">
+        <div class="page-content-tab">
+
+            <div class="container-fluid">
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Add Group</h4>
+                        </div>
+                        <!--end page-title-box-->
+                    </div>
+                    <!--end col-->
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">  
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <form action="/add_group" method="post">
+                                            <div class="mb-3 row">
+                                                <label for="example-text-input" class="col-sm-2 col-form-label text-end">Name</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" id="group_name" name="group_name">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <div class="col-sm-10 ms-auto">
+                                                    <button type="submit" class="btn btn-de-primary">Submit</button>
+                                                </div>
+                                            </div> 
+                                        </form>
+                                    </div>                                                                      
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <table class="table ">
+                                            <thead>
+                                                <th>#</th>
+                                                <th>Group Name</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </thead>
+                                            <tbody>
+                                                <% for (var i = 0; i < groups.length; i++) { %>
+                                                    <tr>
+                                                        <td><%= i+1 %></td>
+                                                        <td><%= groups[i].groupName %></td>
+                                                        <td><i class="mdi mdi-circle-edit-outline menu-icon"></i></td>
+                                                        <td><i class="mdi mdi-delete menu-icon"></i></td>
+                                                    </tr>
+                                                <% } %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--end card-body-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- end page-wrapper -->
+
+<%- include('../templates-dashboard/scripts'); %>     
+
+<%- include('../templates-dashboard/footer'); %>  

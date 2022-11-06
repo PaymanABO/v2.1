@@ -1,0 +1,130 @@
+<%- include('../templates-dashboard/header'); %> <%-
+include('../templates-dashboard/styles'); %> <%-
+include('../templates-dashboard/endheader'); %> <%-
+include('../templates-dashboard/leftbar-tab-menu'); %> <%-
+include('../templates-dashboard/top-bar'); %>
+<div class="page-wrapper">
+  <div class="page-wrapper">
+    <div class="page-content-tab">
+      <div class="container-fluid">
+        <!-- Page-Title -->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="page-title-box">
+              <h4 class="page-title">Add Device</h4>
+            </div>
+            <!--end page-title-box-->
+          </div>
+          <!--end col-->
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <form action="/add_device" method="post">
+                      <div class="mb-3 row">
+                        <label
+                          for="device_name"
+                          class="col-sm-2 col-form-label text-end"
+                          >Name</label
+                        >
+                        <div class="col-sm-10">
+                          <input
+                            class="form-control"
+                            type="text"
+                            id="device_name"
+                            name="device_name"
+                          />
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label text-end"
+                          >Group</label
+                        >
+                        <div class="col-sm-10">
+                          <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            id="device_group"
+                            name="device_group"
+                          >
+                            <% for (var i = 0; i < groups.length; i++) { %>
+                            <option value="<%= groups[i].groupName %>">
+                              <%= groups[i].groupName %>
+                            </option>
+                            <% } %>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label text-end"
+                          >Type</label
+                        >
+                        <div class="col-sm-10">
+                          <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            id="device_type"
+                            name="device_type"
+                          >
+                            <option value="P416-4DIO-2AI">P416-4DIO-2AI</option>
+                            <option value="P414-4DO">P414-4DO</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <div class="col-sm-10 ms-auto">
+                          <button type="submit" class="btn btn-de-primary">
+                            Submit
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table class="table">
+                      <thead>
+                        <th>#</th>
+                        <th>DeviceName</th>
+                        <th>Group</th>
+                        <th>Type</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </thead>
+                      <tbody>
+                        <% for (var i = 0; i < devices.length; i++) { %>
+                        <tr>
+                          <td><%= i+1 %></td>
+                          <td><%= devices[i].device_name %></td>
+                          <td><%= devices[i].device_group %></td>
+                          <td><%= devices[i].device_type %></td>
+
+                          <td>
+                            <i
+                              class="mdi mdi-circle-edit-outline menu-icon"
+                            ></i>
+                          </td>
+                          <td><i class="mdi mdi-delete menu-icon"></i></td>
+                        </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!--end card-body-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end page-wrapper -->
+
+  <%- include('../templates-dashboard/scripts'); %> <%-
+  include('../templates-dashboard/footer'); %>
+</div>
